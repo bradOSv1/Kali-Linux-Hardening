@@ -125,7 +125,7 @@ The following steps will demonstrate how to harden user access and use of admini
 
    Then save and exit. [Ctrl+O] [Enter] [Ctrl+X]
 
-7. Disabling root SSH logins and local TTY root access is an important security protocol that falls under this category. A separate README.md will be dedicated to it soon, and found within the `modules/` folder.
+7. Disabling root SSH logins and local TTY root access is an important security protocol that falls under this category. A separate README.md will be dedicated to it soon, and found within the `Modules` folder.
 
 8. Next is filtering environment variables to limit hijack execution flow, manipulating library loading, or bypassing controls. Start by reopening visudo. Run:
 
