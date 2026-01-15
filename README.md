@@ -25,7 +25,7 @@ Each module documents changes that can be made to help minimize vulnerability to
 
 ## Structure
 
-- `modules/` - Individual hardening modules with commands and rationale
+- `modules` - Individual hardening modules with commands and rationale
 - `README.md` - Project overview and scope
 
 ## Disclaimer
