@@ -6,7 +6,7 @@ The following steps will demonstrate how to harden user access and use of admini
 
 ## Walkthrough
 
-**It’s important to note, these actions are performed with the assumption that at least one fallback admin user already exists.**
+** **It’s important to note, these actions are performed with the assumption that at least one fallback admin user already exists.** **
 
 1. Before any changes are made to privilege controls, back up the current sudo configuration. Run:
 
