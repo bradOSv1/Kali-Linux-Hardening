@@ -30,7 +30,7 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
 
 4. Choose your default security posture.
 
-   **If you're accessing your system remotely via SSH, allow SSH  (22/tcp) BEFORE enabling UFW or you can be yourself out.**
+   **If you're accessing your system remotely via SSH, allow SSH  (22/tcp) BEFORE enabling UFW or you can lock yourself out.**
 
    You may start by setting a strict security posture (recommended for advanced users), then opening ports as needed. This may reduce network functionality until rules are added.
    ```bash
