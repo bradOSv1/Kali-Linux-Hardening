@@ -30,9 +30,9 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
 
 4. Choose your default security posture.
 
-   **If your accessing your system remotely via SSH, allow SSH  (22/tcp) BEFORE enabling UFW or you can be locked out.**
+   **If you're accessing your system remotely via SSH, allow SSH  (22/tcp) BEFORE enabling UFW or you can be yourself out.**
 
-   You may start by setting a strict security posture, then opening ports as needed. This will minimize functionality to what's necessary.
+   You may start by setting a strict security posture (recommended for advanced users), then opening ports as needed. This may reduce network functionality until rules are added.
    ```bash
    sudo ufw default deny incoming
    sudo ufw default deny outgoing
@@ -43,9 +43,15 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    sudo ufw default allow outgoing
    ```
 
+   A clean security posture preference.
+   ```bash
+   sudo ufw default deny incoming
+   sudo ufw default allow outgoing
+   ```
+
 5. Apply your preferred/necessary rule set.
 
-   **Opening a port (general syntax)**
+   **Allowing a port (general syntax)**
 
    Allow a port from anywhere
    ```bash
@@ -57,10 +63,32 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    ```bash
    sudo ufw allow from <trusted-ip> to any port <port> proto <proto>
    ```
-   >Example: sudo ufw allow <trusted-ip> to any port 22 proto tcp
+   >Example: sudo ufw allow from <trusted-ip> to any port 22 proto tcp
    
    Allow a port only from a trusted subnet
    ```bash
    sudo ufw allow from <trusted-subnet>/<cidr> to any port <port> proto <proto>
    ```
    >Example: sudo ufw allow from <trusted-subnet>/<cidr> to any port 22 proto tcp
+
+   **Denying a port (general syntax)**
+
+   Deny a port from anywhere
+   ```bash
+   sudo ufw deny <port>/<proto>
+   ```
+   >Example: sudo ufw deny 445/tcp
+
+   Deny a port only from a specific IP
+   ```bash
+   sudo ufw deny from <source-ip> to any port <port> proto <proto>
+   ```
+   >Example: sudo ufw deny from <source-ip> to any port 445 proto tcp
+
+   Deny a port only from a specific subnet
+   ```bash
+   sudo ufw deny from <source-subnet>/<cidr> to any port <port> proto <proto>
+   ```
+   >Example: sudo ufw deny from <source-subnet>/<cidr> to any port 445 proto tcp
+
+   
