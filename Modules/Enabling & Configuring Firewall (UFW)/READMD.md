@@ -91,4 +91,24 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    ```
    >Example: sudo ufw deny from <source-subnet>/<cidr> to any port 445 proto tcp
 
+   **Ports and Protocols**
+   A list of commonly used ports and protocols.
    
+   - AFP - 548/tcp
+   - DHCP - 67/upd (server) 68/upd (client)
+   - DNS - 53/upd (for most queries) tcp (for zone transfers/large responses)
+   - FTP - 21/tcp
+   - HTTP - 80/tcp
+   - HTTPs - 443/tcp
+   - IMAP - 143/tcp
+   - LDAP - 389/tcp
+   - LDAPS - 636/tcp
+   - NetBIOS/NetBT - 137/upd (Name Service) 138/upd (Datagram Service) 139/tcp (Session Service)
+   - POP3 - 110/tcp
+   - RDP - 3389/tcp & upd
+   - SLP - 427/tcp & upd
+   - SMB/CIFS - 445/tcp
+   - SMTP - 25/tcp
+   - SNMP - 161/upd (queries) 162/upd (traps)
+   - SSH - 22/tcp
+   - Telnet - 23/tcp
