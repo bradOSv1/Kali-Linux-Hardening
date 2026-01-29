@@ -92,6 +92,7 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    >Example: sudo ufw deny from <source-subnet>/<cidr> to any port 445 proto tcp
 
    **Ports and Protocols**
+
    A list of commonly used ports and protocols.
    
    - AFP - 548/tcp
@@ -112,3 +113,24 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    - SNMP - 161/upd (queries) 162/upd (traps)
    - SSH - 22/tcp
    - Telnet - 23/tcp
+  
+6. Enable UFW
+
+   ```bash
+   sudo ufw enable
+   ```
+7. Enable logging
+
+   ```bash
+   sudo ufw logging medium
+   ```
+8. Verify the firewall configuration
+
+   ```bash
+   sudo ufw status verbose
+   sudo ufw status numbered
+   sudo ufw show added
+   ```
+
+   
+
