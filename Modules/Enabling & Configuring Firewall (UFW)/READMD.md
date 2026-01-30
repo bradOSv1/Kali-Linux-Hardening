@@ -152,3 +152,4 @@ sudo ufw disable
 sudo ufw reset
 ```
 
+Thank you for reading. The intention for this walk-through is to showcase my learning and application of user and access control hardening on the Linux platform.
