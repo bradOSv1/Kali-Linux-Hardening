@@ -132,5 +132,23 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    sudo ufw show added
    ```
 
-   
+9. (Alternatively) Remove rules by rule-number
+
+   List rule-numbers
+   ```bash
+   sudo ufw status numbered
+   ```
+
+   Delete a rule-number
+   ```bash
+   sudo ufw delete <rule-number>
+   ```
+
+## Recovery
+
+If you need to revert the firewall settings back default 
+```bash
+sudo ufw disable
+sudo ufw reset
+```
 
