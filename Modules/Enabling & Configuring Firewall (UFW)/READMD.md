@@ -2,9 +2,9 @@
 
 ## Objective 
 
-The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a host-based network policy that filters and limits traffic entering and leaving the system. This helps to control service exposure on public and private networks. Based on your preferred firewall rule set, UFW reduces the attack surface, logs blocked (and allowed) traffic for review, and may enforce controls for outbound traffic.
+The purpose of implementing an Uncomplicated Firewall (UFW) is to enforce a host-based network policy that filters and limits traffic entering and leaving the system. This helps to control service exposure on public and private networks. Based on your preferred firewall rule set, UFW reduces the attack surface, logs blocked (and allowed) traffic for review, and may enforce controls for outbound traffic.
 
-## Walk-through
+## Walkthrough
 
 ** **It's important to note these steps assume you have local access. Please have at least one fallback admin user. The stricter a firewall's rule set is, the less functionality a system will have with connected networks. This is simply the trade-off between security and convenience.** **
 
@@ -15,13 +15,13 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    sudo apt install ufw -y
    ```
 
-2. Review ports that are currently open before applying firewall rules.
+2. Review services that are currently listening before applying firewall rules.
 
    ```bash
-   sudo ss -tulpn
+   sudo ss -lntup
    ```
 
-3. Set UFW to it's baseline rule set.
+3. Set UFW to its baseline rule set.
 
    ```bash
    sudo ufw disable
@@ -43,7 +43,7 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    sudo ufw default allow outgoing
    ```
 
-   A clean security posture preference.
+   A clean security posture preference. (expect breakage)
    ```bash
    sudo ufw default deny incoming
    sudo ufw default allow outgoing
@@ -94,37 +94,39 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    **Ports and Protocols**
 
    A list of commonly used ports and protocols.
+
+   Only allow ports for services you actually run or need.
    
    - AFP - 548/tcp
-   - DHCP - 67/upd (server) 68/upd (client)
-   - DNS - 53/upd (for most queries) tcp (for zone transfers/large responses)
+   - DHCP - 67/udp (server) 68/udp (client)
+   - DNS - 53/udp (for most queries) 53/tcp (for zone transfers/large responses)
    - FTP - 21/tcp
    - HTTP - 80/tcp
-   - HTTPs - 443/tcp
+   - HTTPS - 443/tcp
    - IMAP - 143/tcp
    - LDAP - 389/tcp
    - LDAPS - 636/tcp
-   - NetBIOS/NetBT - 137/upd (Name Service) 138/upd (Datagram Service) 139/tcp (Session Service)
+   - NetBIOS/NetBT - 137/udp (Name Service) 138/udp (Datagram Service) 139/tcp (Session Service)
    - POP3 - 110/tcp
-   - RDP - 3389/tcp & upd
-   - SLP - 427/tcp & upd
+   - RDP - 3389/tcp, 3389/udp
+   - SLP - 427/tcp, 427/udp
    - SMB/CIFS - 445/tcp
    - SMTP - 25/tcp
-   - SNMP - 161/upd (queries) 162/upd (traps)
+   - SNMP - 161/udp (queries) 162/udp (traps)
    - SSH - 22/tcp
    - Telnet - 23/tcp
   
-6. Enable UFW
+7. Enable UFW
 
    ```bash
    sudo ufw enable
    ```
-7. Enable logging
+8. Enable logging
 
    ```bash
    sudo ufw logging medium
    ```
-8. Verify the firewall configuration
+9. Verify the firewall configuration
 
    ```bash
    sudo ufw status verbose
@@ -132,7 +134,7 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
    sudo ufw show added
    ```
 
-9. (Alternatively) Remove rules by rule-number
+10. (Alternatively) Remove rules by rule-number
 
    List rule-numbers
    ```bash
@@ -146,10 +148,10 @@ The purpose for implementing an Uncomplicated Firewall (UFW) is to enforce a hos
 
 ## Recovery
 
-If you need to revert the firewall settings back default 
+If you need to revert the firewall settings back to default 
 ```bash
 sudo ufw disable
 sudo ufw reset
 ```
 
-Thank you for reading. The intention for this walk-through is to showcase my learning and application of user and access control hardening on the Linux platform.
+Thank you for reading. The intention for this walkthrough is to showcase my learning and application of host-based firewall configuration using UFW on Kali Linux.
